@@ -14,39 +14,6 @@ When there is no car parked, the LED glows green, and no light glows when the sl
 When the slot is full, the sensors send information to the display and the database, where the data is stored in the database.
 This data is displayed on the web screen and will be saved in it until we rerun the program.
 
-Building our Model
-First we started with writing a python code for measuring distance between objects using ultra-sonic sensor. We also tried to measure distance using IR sensor but when compared to ultra-sonic the effectiveness was lower. So we went on with ultra-sonic
-We placed ultra-sonic sensor in each of the slots. We had eight slots so a total of 8 sensors were used. The entire ultra-sonic sensor is connected to Raspberry Pi and gave a real time measurement. We used 15 CMS as default distance if the distance is less than 15, display slots is not empty & if the distance is more than 15 centimetres, display slots are not empty.
-LED is used as indicator, if the distance is less than 15 blink the LED an indicator of slots being occupied. 
-We used a LCD to display the info about which slots are empty; it is placed in the beginning so that the driver entering will have an idea where to park. We also had a motor which rotates when at least one of the slots are free acting as a gate. 
+The full document can be found in the below mentioned document file
 
-All the info from sensors are inter-linked LCD, LED & Ultra-Sonic Sensors.
-And all the data is stored on the local disk & it works in real time.
-This is how our model looks 
-
-
-Code for ultrasonic sensor 
-if distance > 15:
-        print " slot 2 is empty"
-     
-        lcd.message('slot2 is empty')
-    else :
-        print"slot 2 is not empty"
-      
-If the value is less than 15, print slot is empty and lcd will display slot 2 is empty.
-Website Building
-We used Apache to build local host & php as a scripting language. The data from the local server is transferred to MySql using python program & we used php, PhpMyAdmin to display the real time information. The eight slots information was displayed on the website. This information can be accessed be device before coming to the mall. We wanted to add feature of booking the slot but unfortunately it isn’t implemented.
-We used MySql connect to transfer data from the photon code to the MySql Database. 
-Code for using MySql Connect.
-db = MySQLdb.connect("localhost","root","root","smart" )
-cursor = db.cursor()
-cursor.execute("DROP TABLE IF EXISTS SMARTP")
-sql = """CREATE TABLE SMARTP (
-         slot_number INT  ,
-         status  CHAR(20) ) """
-         #PRIMARY KEY (slot_number) ) """
-
-cursor.execute(sql)
-
-cursor = db.cursor()
-
+https://drive.google.com/file/d/1KGH3FsB82Qy1V7Le5TCHiQd6AEgvrUza/view?usp=sharing
